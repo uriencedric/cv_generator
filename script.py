@@ -8,7 +8,8 @@ doc = Document()
 for k, v in HEADER.items():
     if k == "name":
         doc.add_heading(v, level=1)
-    doc.add_heading(v, level=2)
+    else:
+        doc.add_heading(v, level=2)
 
 for k, v in CONTACT_INFO.items():
     doc.add_paragraph(v)
@@ -21,7 +22,7 @@ doc.add_heading("Core Competencies", level=2)
 for key, values in COMPETENCIES.items():
     doc.add_paragraph(key, style='List Bullet')
     for value in values:
-        doc.add_paragraph(f"- {value}", style='List Bullet 2')
+        doc.add_paragraph(f" {value}", style='List Bullet 2')
 
 doc.add_heading("Professional Experience", level=2)
 
@@ -29,7 +30,7 @@ for experience in EXPERIENCES:
     doc.add_heading(f"{experience['role']} | {experience['company']}", level=3)
     doc.add_paragraph(f"{experience['dates']} | {experience['location']}")
     for responsibility in experience['responsibilities']:
-        doc.add_paragraph(f"- {responsibility}", style='List Bullet')
+        doc.add_paragraph(f" {responsibility}", style='List Bullet')
     doc.add_paragraph(f"Technologies: {', '.join(experience['technologies'])}")
 
 doc.add_heading("Education", level=2)
